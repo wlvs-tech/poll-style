@@ -335,17 +335,16 @@ Meta Info Stylings
 Credits Styling 
 ***********************************************/
 .custom .credits {
-  /*   font-size: 0.5rem;
-  opacity: 1;
-  height: 1rem;
-  margin-top: 0.5rem;
-  transition: all 1s; */
-  height: 0;
+  font-size: 0.5rem;
   opacity: 0;
-  margin-top: 0;
+  height: 0;
+  transition: all 1s;
 }
 
-.custom.active .credits,
+.custom.finished .credits {
+    height: 0.5rem;
+    opacity: .3;
+}
 .custom.removing .credits {
   height: 0;
   opacity: 0;
