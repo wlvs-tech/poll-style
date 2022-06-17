@@ -9,14 +9,14 @@ Please keep the link to https://poll.ma.pe visible for a short period of time.
 /***********************************************
 Font Imports
 ***********************************************/
-@import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
 
 /***********************************************
 Variables
 ***********************************************/
 :root {
   /*  General  */
-  --font-family: "Passion One", cursive;
+  --font-family: "Passion One", sans-serif;
   --background: transparent;
   --min-width: 900px;
   --poll-outside-padding: 30px;
@@ -30,8 +30,8 @@ Variables
 
   /*  Poll Title  */
   --title-font-size: 1rem;
-  --title-font-weight: 600;
-  --title-letter-spacing: 2px;
+  --title-font-weight: 700;
+  --title-letter-spacing: 0px;
   --title-margin-bottom: -0.5rem;
 
   /*  Help Text  */
@@ -47,14 +47,14 @@ Variables
 
   /*  Option Text  */
   --option-font-size: 1rem;
-  --option-font-weight: 600;
-  --option-letter-spacing: 2px;
+  --option-font-weight: 700;
+  --option-letter-spacing: 0px;
   --highest-font-color: #ffffff;
 
   /*  Percent Text  */
   --percet-font-size: 1rem;
-  --percet-font-weight: 600;
-  --percet-letter-spacing: 2px;
+  --percet-font-weight: 700;
+  --percet-letter-spacing: 0px;
 
   /*  Colors  */
   --color1: #f00000;
