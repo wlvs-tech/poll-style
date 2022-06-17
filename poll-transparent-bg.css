@@ -16,7 +16,7 @@ Variables
 ***********************************************/
 :root {
   /*  General  */
-  --font-family: "Passion Oned", system-ui, sans-serif;
+  --font-family: "Passion One", cursive;
   --background: transparent;
   --min-width: 900px;
   --poll-outside-padding: 30px;
@@ -27,31 +27,35 @@ Variables
   Upper Seciton Container
   ******************************
   */
-  
+
   /*  Poll Title  */
   --title-font-size: 1rem;
-  --title-font-weight: 800;
+  --title-font-weight: 600;
+  --title-letter-spacing: 2px;
   --title-margin-bottom: -0.5rem;
 
   /*  Help Text  */
   --help-font-size: 0.6rem;
   --help-font-weight: 400;
+  --help-letter-spacing: 0px;
   --help-height: 1.5em;
 
   /*   
   Option Container
   ******************************
   */
-  
+
   /*  Option Text  */
   --option-font-size: 1rem;
-  --option-font-weight: 800;
+  --option-font-weight: 600;
+  --option-letter-spacing: 2px;
   --highest-font-color: #ffffff;
 
   /*  Percent Text  */
   --percet-font-size: 1rem;
-  --percet-font-weight: 800;
-  
+  --percet-font-weight: 600;
+  --percet-letter-spacing: 2px;
+
   /*  Colors  */
   --color1: #f00000;
   --color2: #ffbe2c;
@@ -59,17 +63,22 @@ Variables
   --color4: #103fe6;
   --color5: #3cdf4d;
   --color6: #f000ad;
-  
+
   /*   
   Lower Section Styles
   ******************************
   */
-  
+
   /*  Meta Data Styles  */
   --metadata-label-font-size: 0.85rem;
   --metadata-label-font-color: #ffffff;
+  --metadata-label-font-weight: 600;
+  --metadata-label-letter-spacing: 2px;
+
   --metadata-data-font-size: 0.85rem;
   --metadata-data-font-color: #ffffff;
+  --metadata-data-font-weight: 600;
+  --metadata-data-letter-spacing: 2px;
 
   /*  Set Root Font Size so we can realitive size from it  */
   font-size: var(--font-size-root);
@@ -82,6 +91,7 @@ Overlay Container
   padding: var(--poll-outside-padding);
   background: var(--background);
   font-family: var(--font-family);
+
   min-width: var(--min-width);
   opacity: 1;
   transition: opacity 1s;
@@ -115,6 +125,7 @@ Poll Question Styling
 .custom .options li.question {
   font-size: var(--title-font-size);
   font-weight: var(--title-font-weight);
+  letter-spacing: var(--title-letter-spacing);
   text-align: center;
   margin-bottom: var(--title-margin-bottom);
 }
@@ -131,6 +142,8 @@ Help Text Styling
 .custom .options li.help {
   font-size: var(--help-font-size);
   font-weight: var(--help-font-weight);
+  letter-spacing: var(--help-letter-spacing);
+
   height: var(--help-height);
   text-align: center;
   text-transform: lowercase;
@@ -225,6 +238,8 @@ Option Text Styling
   grid-area: Answer;
   font-size: var(--option-font-size);
   font-weight: var(--option-font-weight);
+  letter-spacing: var(--option-letter-spacing);
+
   line-height: 1;
   height: 100%;
   display: inline-flex;
@@ -273,8 +288,9 @@ Percent Styling
 ***********************************************/
 .custom .options li .procent {
   grid-area: Percent;
-  font-size: var(--option-font-size);
-  font-weight: var(--option-font-weight);
+  font-size: var(--percet-font-size);
+  font-weight: var(--percet-font-weight);
+  letter-spacing: var(--percet-letter-spacing);
   display: flex;
   align-self: flex-end;
   padding-right: 0.3rem;
@@ -300,6 +316,8 @@ Meta Info Stylings
 .custom .duration {
   color: var(--metadata-label-font-color);
   font-size: var(--metadata-label-font-size);
+  font-weight: var(--metadata-label-font-weight);
+  letter-spacing: var(--metadata-label-letter-spacing);
   margin: 10px;
   line-height: 1.3;
 }
@@ -308,6 +326,8 @@ Meta Info Stylings
 .custom .duration strong {
   color: var(--metadata-data-font-color);
   font-size: var(--metadata-data-font-size);
+  font-weight: var(--metadata-data-font-weight);
+  letter-spacing: var(--metadata-data-letter-spacing);
   display: block;
 }
 
@@ -315,11 +335,14 @@ Meta Info Stylings
 Credits Styling 
 ***********************************************/
 .custom .credits {
-  font-size: 0.5rem;
+  /*   font-size: 0.5rem;
   opacity: 1;
   height: 1rem;
   margin-top: 0.5rem;
-  transition: all 1s;
+  transition: all 1s; */
+  height: 0;
+  opacity: 0;
+  margin-top: 0;
 }
 
 .custom.active .credits,
@@ -381,4 +404,3 @@ Stream Positioning
   bottom: 20px;
   right: 20px;
 }
-
