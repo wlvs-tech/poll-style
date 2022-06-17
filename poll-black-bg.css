@@ -1,0 +1,384 @@
+/*
+Use your custom theme:
+Select "Custom" theme in the dashboard
+On your https://poll.ma.pe/overlay/<id>/ URL add ?customCss=https://example.com/style.css
+
+Please keep the link to https://poll.ma.pe visible for a short period of time.
+*/
+
+/***********************************************
+Font Imports
+***********************************************/
+@import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
+
+/***********************************************
+Variables
+***********************************************/
+:root {
+  /*  General  */
+  --font-family: "Passion Oned", system-ui, sans-serif;
+  --background: #000000;
+  --min-width: 900px;
+  --poll-outside-padding: 30px;
+  --font-size-root: 40px;
+  --line-gap: 0.5rem;
+
+  /*   
+  Upper Seciton Container
+  ******************************
+  */
+  
+  /*  Poll Title  */
+  --title-font-size: 1rem;
+  --title-font-weight: 800;
+  --title-margin-bottom: -0.5rem;
+
+  /*  Help Text  */
+  --help-font-size: 0.6rem;
+  --help-font-weight: 400;
+  --help-height: 1.5em;
+
+  /*   
+  Option Container
+  ******************************
+  */
+  
+  /*  Option Text  */
+  --option-font-size: 1rem;
+  --option-font-weight: 800;
+  --highest-font-color: #ffffff;
+
+  /*  Percent Text  */
+  --percet-font-size: 1rem;
+  --percet-font-weight: 800;
+  
+  /*  Colors  */
+  --color1: #f00000;
+  --color2: #ffbe2c;
+  --color3: #b553f3;
+  --color4: #103fe6;
+  --color5: #3cdf4d;
+  --color6: #f000ad;
+  
+  /*   
+  Lower Section Styles
+  ******************************
+  */
+  
+  /*  Meta Data Styles  */
+  --metadata-label-font-size: 0.85rem;
+  --metadata-label-font-color: #ffffff;
+  --metadata-data-font-size: 0.85rem;
+  --metadata-data-font-color: #ffffff;
+
+  /*  Set Root Font Size so we can realitive size from it  */
+  font-size: var(--font-size-root);
+}
+
+/***********************************************
+Overlay Container
+***********************************************/
+.custom {
+  padding: var(--poll-outside-padding);
+  background: var(--background);
+  font-family: var(--font-family);
+  min-width: var(--min-width);
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.custom.removing {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/***********************************************
+Main Poll Container (Title, Help & Options)
+***********************************************/
+.custom .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--line-gap);
+}
+
+.custom.finished .options li,
+.custom.removing .options li {
+  opacity: 0.3;
+  transition: all 1s;
+}
+
+/***********************************************
+Poll Question Styling
+***********************************************/
+.custom .options li.question {
+  font-size: var(--title-font-size);
+  font-weight: var(--title-font-weight);
+  text-align: center;
+  margin-bottom: var(--title-margin-bottom);
+}
+
+.custom.finished .options li.question,
+.custom.removing .options li.question {
+  opacity: 0.3;
+  transition: all 1s;
+}
+
+/***********************************************
+Help Text Styling 
+***********************************************/
+.custom .options li.help {
+  font-size: var(--help-font-size);
+  font-weight: var(--help-font-weight);
+  height: var(--help-height);
+  text-align: center;
+  text-transform: lowercase;
+  line-height: 2;
+}
+
+.custom.finished .options li.help,
+.custom.removing .options li.help {
+  opacity: 0;
+  height: 0;
+  transition: all 1s;
+}
+
+/***********************************************
+Option Container Styling
+***********************************************/
+.custom .options li.option {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2rem auto 4rem;
+  grid-template-rows: 1.5rem 0.8rem;
+  grid-template-areas:
+    "Number Answer Percent"
+    "Number Bar Bar";
+  white-space: nowrap;
+}
+
+/* Colored Boarder for each Option */
+.custom .options li.option:nth-of-type(6n-3) {
+  border: 3px solid var(--color1);
+}
+.custom .options li.option:nth-of-type(6n-2) {
+  border: 3px solid var(--color2);
+}
+.custom .options li.option:nth-of-type(6n-1) {
+  border: 3px solid var(--color3);
+}
+.custom .options li.option:nth-of-type(6n-0) {
+  border: 3px solid var(--color4);
+}
+.custom .options li.option:nth-of-type(6n + 1) {
+  border: 3px solid var(--color5);
+}
+.custom .options li.option:nth-of-type(6n + 2) {
+  border: 3px solid var(--color6);
+}
+
+.custom.finished .options li.highest,
+.custom.removing .options li.highest {
+  color: var(--highest-font-color);
+  opacity: 1;
+}
+
+/***********************************************
+Option Number Styling 
+***********************************************/
+.custom .options li .number {
+  grid-area: Number;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: auto;
+}
+
+/* Option Number Background Color */
+.custom .options li.option:nth-of-type(6n-3) .number {
+  background: var(--color1);
+}
+.custom .options li.option:nth-of-type(6n-2) .number {
+  background: var(--color2);
+}
+.custom .options li.option:nth-of-type(6n-1) .number {
+  background: var(--color3);
+}
+.custom .options li.option:nth-of-type(6n-0) .number {
+  background: var(--color4);
+}
+.custom .options li.option:nth-of-type(6n + 1) .number {
+  background: var(--color5);
+}
+.custom .options li.option:nth-of-type(6n + 2) .number {
+  background: var(--color6);
+}
+
+/***********************************************
+Option Text Styling
+***********************************************/
+.custom .options li .text {
+  grid-area: Answer;
+  font-size: var(--option-font-size);
+  font-weight: var(--option-font-weight);
+  line-height: 1;
+  height: 100%;
+  display: inline-flex;
+  align-items: end;
+  padding-bottom: 0.2rem;
+}
+
+/***********************************************
+Progress Bar Styling 
+***********************************************/
+.custom .options li .bar {
+  grid-area: Bar;
+  height: 0.4rem;
+  margin-right: 0.3rem;
+}
+
+.custom .options li .bar .bar-inner {
+  height: 0.4rem;
+  min-width: 5px;
+  transition: width 1s;
+  position: relative;
+}
+
+/* Progress Bar Color Backgrounds  */
+.custom .options li.option:nth-of-type(6n-3) .bar .bar-inner {
+  background: #f00000;
+}
+.custom .options li.option:nth-of-type(6n-2) .bar .bar-inner {
+  background: #ffbe2c;
+}
+.custom .options li.option:nth-of-type(6n-1) .bar .bar-inner {
+  background: #b553f3;
+}
+.custom .options li.option:nth-of-type(6n-0) .bar .bar-inner {
+  background: #103fe6;
+}
+.custom .options li.option:nth-of-type(6n + 1) .bar .bar-inner {
+  background: #3cdf4d;
+}
+.custom .options li.option:nth-of-type(6n + 2) .bar .bar-inner {
+  background: #f000ad;
+}
+
+/***********************************************
+Percent Styling 
+***********************************************/
+.custom .options li .procent {
+  grid-area: Percent;
+  font-size: var(--option-font-size);
+  font-weight: var(--option-font-weight);
+  display: flex;
+  align-self: flex-end;
+  padding-right: 0.3rem;
+  padding-bottom: 0.2rem;
+  justify-content: end;
+}
+
+/***********************************************
+Meta Info Stylings
+***********************************************/
+.custom .metaInfo {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.custom.finished .metaInfo,
+.custom.removing .metaInfo {
+  opacity: 0.3;
+}
+
+.custom .total,
+.custom .duration {
+  color: var(--metadata-label-font-color);
+  font-size: var(--metadata-label-font-size);
+  margin: 10px;
+  line-height: 1.3;
+}
+
+.custom .total strong,
+.custom .duration strong {
+  color: var(--metadata-data-font-color);
+  font-size: var(--metadata-data-font-size);
+  display: block;
+}
+
+/***********************************************
+Credits Styling 
+***********************************************/
+.custom .credits {
+  font-size: 0.5rem;
+  opacity: 1;
+  height: 1rem;
+  margin-top: 0.5rem;
+  transition: all 1s;
+}
+
+.custom.active .credits,
+.custom.removing .credits {
+  height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+/***********************************************
+Stream Positioning
+***********************************************/
+.custom.topLeft {
+  top: 20px;
+  left: 20px;
+}
+
+.custom.topCenter {
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.custom.topRight {
+  top: 20px;
+  right: 20px;
+}
+
+.custom.middleLeft {
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 20px;
+}
+
+.custom.middleCenter {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.custom.middleRight {
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 20px;
+}
+
+.custom.bottomLeft {
+  bottom: 20px;
+  left: 20px;
+}
+
+.custom.bottomCenter {
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.custom.bottomRight {
+  bottom: 20px;
+  right: 20px;
+}
+
